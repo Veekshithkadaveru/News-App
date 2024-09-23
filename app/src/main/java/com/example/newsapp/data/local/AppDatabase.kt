@@ -2,6 +2,8 @@ package com.example.newsapp.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.example.newsapp.data.local.dao.BookmarkHeadlinesDao
+import com.example.newsapp.data.local.dao.CacheHeadlinesDao
 import com.example.newsapp.data.local.entity.BookmarkHeadline
 import com.example.newsapp.data.local.entity.CacheHeadline
 
@@ -11,4 +13,6 @@ import com.example.newsapp.data.local.entity.CacheHeadline
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
+    abstract fun bookmarkHeadlinesDao(): BookmarkHeadlinesDao
+    abstract fun cacheHeadlinesDao(): CacheHeadlinesDao
 }
