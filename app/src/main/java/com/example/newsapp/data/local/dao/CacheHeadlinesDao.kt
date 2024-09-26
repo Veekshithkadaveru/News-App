@@ -19,7 +19,7 @@ interface CacheHeadlinesDao {
     fun removeAll()
 
     @Transaction
-    fun deleteAllAndRemoveAll(headlines: List<CacheHeadline>) {
+    fun deleteAllAndInsertAll(headlines: List<CacheHeadline>) {
         removeAll()
         addAll(headlines)
     }
