@@ -7,7 +7,7 @@ import com.example.newsapp.data.local.AppDatabase
 import com.example.newsapp.data.local.AppDatabaseService
 import com.example.newsapp.data.local.DatabaseService
 import com.example.newsapp.data.remote.AuthInterceptor
-import com.example.newsapp.data.remote.model.NetworkService
+import com.example.newsapp.data.remote.NetworkService
 import com.example.newsapp.di.ApiKey
 import com.example.newsapp.di.BaseUrl
 import com.example.newsapp.utils.AppConstants.API_KEY

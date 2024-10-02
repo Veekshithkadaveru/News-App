@@ -1,5 +1,7 @@
-package com.example.newsapp.data.remote.model
+package com.example.newsapp.data.remote
 
+import com.example.newsapp.data.remote.model.HeadlineResponse
+import com.example.newsapp.data.remote.model.SourceResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 import javax.inject.Singleton
