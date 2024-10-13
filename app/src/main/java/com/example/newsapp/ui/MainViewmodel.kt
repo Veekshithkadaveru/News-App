@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
 @HiltViewModel
-class Viewmodel @Inject constructor() : ViewModel() {
+class MainViewmodel @Inject constructor() : ViewModel() {
 
     private val _isNetworkConnected = MutableStateFlow(false)
 
