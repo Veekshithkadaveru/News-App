@@ -1,4 +1,4 @@
-package com.example.newsapp.ui.headlines
+package com.example.newsapp.ui.headlines.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HeadlinesViewmodel @Inject constructor(
+class HomeViewmodel @Inject constructor(
     private val repository: Repository,
     private val dispatcherProvider: DispatcherProvider
 ) : ViewModel() {

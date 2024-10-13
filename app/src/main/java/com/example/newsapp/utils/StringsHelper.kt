@@ -1,8 +1,8 @@
-package com.example.newsapp.utils.network
+package com.example.newsapp.utils
 
 object StringsHelper {
     object StringsHelper {
-        const val APP_NAME = "Samachar"
+        const val APP_NAME = "News App"
         const val LOADING = "loading"
         const val BACK_TO_TOP = "back to top"
         const val NO_DATA_FOUND = "No data found!"

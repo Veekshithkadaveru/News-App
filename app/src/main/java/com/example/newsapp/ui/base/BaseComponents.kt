@@ -31,10 +31,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.DialogProperties
 import com.example.newsapp.R
-import com.example.newsapp.utils.network.StringsHelper.StringsHelper.NO_DATA_FOUND
-import com.example.newsapp.utils.network.StringsHelper.StringsHelper.NO_INTERNET_CONNECTION
-import com.example.newsapp.utils.network.StringsHelper.StringsHelper.RETRY
-import com.example.newsapp.utils.network.StringsHelper.StringsHelper.VIEW_NEWS_OFFLINE
+import com.example.newsapp.utils.StringsHelper.StringsHelper.NO_DATA_FOUND
+import com.example.newsapp.utils.StringsHelper.StringsHelper.NO_INTERNET_CONNECTION
+import com.example.newsapp.utils.StringsHelper.StringsHelper.RETRY
+import com.example.newsapp.utils.StringsHelper.StringsHelper.VIEW_NEWS_OFFLINE
 
 @Composable
 fun PrimaryButton(modifier: Modifier, text: String, onClick: ClickHandler) {
