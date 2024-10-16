@@ -42,7 +42,7 @@ class SearchViewmodel @Inject constructor(
         }
     }
 
-    private fun clearHeadlines() {
+     fun clearHeadlines() {
         _searchedHeadlines.update { PagingData.empty() }
     }
 
