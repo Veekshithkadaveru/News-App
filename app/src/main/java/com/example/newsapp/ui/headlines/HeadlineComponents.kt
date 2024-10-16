@@ -44,8 +44,8 @@ import com.example.newsapp.ui.base.MaxFillProgressLoading
 import com.example.newsapp.ui.base.RetryHandler
 import com.example.newsapp.ui.base.ShowErrorDialog
 import com.example.newsapp.ui.base.UiState
-import com.example.newsapp.utils.network.StringsHelper.StringsHelper.DIALOG_ERROR_HEADER
-import com.example.newsapp.utils.network.StringsHelper.StringsHelper.DIALOG_NETWORK_ERROR
+import com.example.newsapp.utils.StringsHelper.StringsHelper.DIALOG_ERROR_HEADER
+import com.example.newsapp.utils.StringsHelper.StringsHelper.DIALOG_NETWORK_ERROR
 
 @Composable
 fun <T> LoadHeadlines(
