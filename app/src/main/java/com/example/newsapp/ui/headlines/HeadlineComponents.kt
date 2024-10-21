@@ -44,8 +44,10 @@ import com.example.newsapp.ui.base.MaxFillProgressLoading
 import com.example.newsapp.ui.base.RetryHandler
 import com.example.newsapp.ui.base.ShowErrorDialog
 import com.example.newsapp.ui.base.UiState
+import com.example.newsapp.utils.StringsHelper.StringsHelper.BOOKMARKED_NEWS
 import com.example.newsapp.utils.StringsHelper.StringsHelper.DIALOG_ERROR_HEADER
 import com.example.newsapp.utils.StringsHelper.StringsHelper.DIALOG_NETWORK_ERROR
+import com.example.newsapp.utils.StringsHelper.StringsHelper.HEADLINE_IMAGE
 
 @Composable
 fun <T> LoadHeadlines(
@@ -269,7 +271,7 @@ private fun HeadlineBannerImage(
                 .crossfade(true)
                 .build(),
             contentScale = ContentScale.FillBounds,
-            contentDescription = "headline_image",
+            contentDescription = HEADLINE_IMAGE,
             modifier = Modifier.matchParentSize()
         )
 
@@ -283,7 +285,7 @@ private fun HeadlineBannerImage(
         ) {
             Icon(
                 painter = bookmarkIcon,
-                contentDescription = "BOOKMARKED NEWS",
+                contentDescription = BOOKMARKED_NEWS,
                 tint = Color.Black
             )
         }
