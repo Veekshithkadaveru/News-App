@@ -47,6 +47,8 @@ import com.example.newsapp.ui.base.PrimaryButton
 import com.example.newsapp.ui.base.Route
 import com.example.newsapp.ui.base.TextButton
 import com.example.newsapp.ui.base.UrlHandler
+import com.example.newsapp.ui.filters.country.CountriesBottomSheet
+import com.example.newsapp.ui.filters.country.CountriesViewmodel
 import com.example.newsapp.ui.headlines.LoadPaginatedHeadlines
 import com.example.newsapp.utils.AppConstants.DEFAULT_LANGUAGE_CODE
 import com.example.newsapp.utils.AppConstants.DEFAULT_SOURCE
@@ -56,6 +58,7 @@ import com.example.newsapp.utils.StringsHelper.StringsHelper.LANGUAGE_BUTTON
 import com.example.newsapp.utils.StringsHelper.StringsHelper.SAVED_TO_BOOKMARK
 import com.example.newsapp.utils.StringsHelper.StringsHelper.SEARCH_BUTTON
 import com.example.newsapp.utils.StringsHelper.StringsHelper.SELECT_NEWS_SOURCE
+import com.example.newsapp.utils.StringsHelper.StringsHelper.TOAST_NETWORK_ERROR
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -66,6 +69,7 @@ fun HomeScreen(
     navController: NavController,
     mainViewmodel: MainViewmodel,
     homeViewmodel: HomeViewmodel = hiltViewModel(),
+    countriesViewmodel: CountriesViewmodel = hiltViewModel(),
     onHeadlineClicked: UrlHandler
 ) {
 
@@ -118,7 +122,16 @@ fun HomeScreen(
 
     if (showCountriesBottomSheet) {
         if (networkConnectedState) {
-            TODO("Add logic to display CountriesBottomSheet based on network connectivity")
+            CountriesBottomSheet(
+                context = context,
+                countriesViewmodel = countriesViewmodel,
+                mainViewmodel = mainViewmodel
+            ) {
+                showCountriesBottomSheet = false
+            }
+        } else {
+            showCountriesBottomSheet = false
+            Toast.makeText(context, TOAST_NETWORK_ERROR, Toast.LENGTH_SHORT).show()
         }
     }
 
