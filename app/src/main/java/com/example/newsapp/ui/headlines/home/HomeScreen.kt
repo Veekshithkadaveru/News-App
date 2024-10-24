@@ -1,6 +1,5 @@
 package com.example.newsapp.ui.headlines.home
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.layout.Box
@@ -62,7 +61,6 @@ import com.example.newsapp.utils.StringsHelper.StringsHelper.TOAST_NETWORK_ERROR
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun HomeScreen(
     context: Context,
@@ -135,8 +133,6 @@ fun HomeScreen(
         }
     }
 
-
-
     Scaffold(topBar = {
         TopAppBar(navController = navController,
             headlinesParams = headlineParamsState,
@@ -188,11 +184,8 @@ fun HomeScreen(
                     }
                 }
             }
-
         }
-
     }
-
 }
 
 private fun fetchHeadlines(headlinesParams: HeadlineParams, homeViewmodel: HomeViewmodel) {
@@ -243,8 +236,6 @@ private fun TopAppBar(
 
                     Spacer(modifier = Modifier.width(8.dp))
                 }
-
-
             }
         },
         colors = topAppBarColors(
@@ -298,7 +289,5 @@ private fun BackToTopButton(modifier: Modifier, onClick: ClickHandler) {
         )
 
         Text(modifier = Modifier.padding(start = 8.dp), text = BACK_TO_TOP)
-
     }
-
 }
