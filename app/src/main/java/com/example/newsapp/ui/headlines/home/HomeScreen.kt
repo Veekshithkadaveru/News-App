@@ -48,6 +48,8 @@ import com.example.newsapp.ui.base.TextButton
 import com.example.newsapp.ui.base.UrlHandler
 import com.example.newsapp.ui.filters.country.CountriesBottomSheet
 import com.example.newsapp.ui.filters.country.CountriesViewmodel
+import com.example.newsapp.ui.filters.language.LanguageViewmodel
+import com.example.newsapp.ui.filters.language.LanguagesBottomSheet
 import com.example.newsapp.ui.headlines.LoadPaginatedHeadlines
 import com.example.newsapp.utils.AppConstants.DEFAULT_LANGUAGE_CODE
 import com.example.newsapp.utils.AppConstants.DEFAULT_SOURCE
@@ -68,6 +70,7 @@ fun HomeScreen(
     mainViewmodel: MainViewmodel,
     homeViewmodel: HomeViewmodel = hiltViewModel(),
     countriesViewmodel: CountriesViewmodel = hiltViewModel(),
+    languagesViewmodel: LanguageViewmodel = hiltViewModel(),
     onHeadlineClicked: UrlHandler
 ) {
 
@@ -114,7 +117,15 @@ fun HomeScreen(
 
     if (showLanguageBottomSheet) {
         if (networkConnectedState) {
-            TODO("Add logic to display LanguagesBottomSheet based on network connectivity")
+            LanguagesBottomSheet(
+                context = context,
+                languageViewmodel = languagesViewmodel,
+                mainViewmodel = mainViewmodel,
+                selectedLanguageCode = headlineParamsState.selectedLanguageCode
+            ) { showLanguageBottomSheet = false }
+        } else {
+            showLanguageBottomSheet = false
+            Toast.makeText(context, TOAST_NETWORK_ERROR, Toast.LENGTH_SHORT).show()
         }
     }
 

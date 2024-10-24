@@ -39,7 +39,6 @@ import com.example.newsapp.ui.base.LanguageHandler
 import com.example.newsapp.ui.base.PrimaryButton
 import com.example.newsapp.ui.base.ProgressLoading
 import com.example.newsapp.ui.base.UiState
-import com.example.newsapp.utils.DispatcherProvider
 import com.example.newsapp.utils.StringsHelper.StringsHelper.CHOOSE_LANGUAGE
 import com.example.newsapp.utils.StringsHelper.StringsHelper.SELECT
 
@@ -49,7 +48,6 @@ fun LanguagesBottomSheet(
     context: Context,
     languageViewmodel: LanguageViewmodel,
     mainViewmodel: MainViewmodel,
-    dispatcherProvider: DispatcherProvider,
     selectedLanguageCode: String,
     onDismiss: DismissHandler
 ) {
