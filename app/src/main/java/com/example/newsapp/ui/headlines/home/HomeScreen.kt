@@ -50,6 +50,8 @@ import com.example.newsapp.ui.filters.country.CountriesBottomSheet
 import com.example.newsapp.ui.filters.country.CountriesViewmodel
 import com.example.newsapp.ui.filters.language.LanguageViewmodel
 import com.example.newsapp.ui.filters.language.LanguagesBottomSheet
+import com.example.newsapp.ui.filters.sources.SourcesBottomSheet
+import com.example.newsapp.ui.filters.sources.SourcesViewmodel
 import com.example.newsapp.ui.headlines.LoadPaginatedHeadlines
 import com.example.newsapp.utils.AppConstants.DEFAULT_LANGUAGE_CODE
 import com.example.newsapp.utils.AppConstants.DEFAULT_SOURCE
@@ -71,6 +73,7 @@ fun HomeScreen(
     homeViewmodel: HomeViewmodel = hiltViewModel(),
     countriesViewmodel: CountriesViewmodel = hiltViewModel(),
     languagesViewmodel: LanguageViewmodel = hiltViewModel(),
+    sourcesViewmodel: SourcesViewmodel = hiltViewModel(),
     onHeadlineClicked: UrlHandler
 ) {
 
@@ -111,7 +114,15 @@ fun HomeScreen(
 
     if (showSourcesBottomSheet) {
         if (networkConnectedState) {
-            TODO("Add logic to display SourcesBottomSheet based on network connectivity")
+            SourcesBottomSheet(
+                context = context,
+                sourcesViewmodel = sourcesViewmodel,
+                mainViewmodel = mainViewmodel,
+                countryCode = headlineParamsState.selectedCountry.code
+            ) { showSourcesBottomSheet = false }
+        } else {
+            showSourcesBottomSheet = false
+            Toast.makeText(context, TOAST_NETWORK_ERROR, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -258,6 +269,7 @@ private fun TopAppBar(
 
 @Composable
 private fun SearchButton(onClick: ClickHandler) {
+
     IconButton(
         modifier = Modifier,
         drawablePainter = painterResource(id = R.drawable.search),
@@ -267,6 +279,7 @@ private fun SearchButton(onClick: ClickHandler) {
 
 @Composable
 private fun SelectLanguageButton(onClick: ClickHandler) {
+
     IconButton(
         modifier = Modifier,
         drawablePainter = painterResource(id = R.drawable.language),
@@ -276,6 +289,7 @@ private fun SelectLanguageButton(onClick: ClickHandler) {
 
 @Composable
 private fun SelectCountryButton(flag: String, onClick: ClickHandler) {
+
     TextButton(
         modifier = Modifier,
         text = flag
@@ -284,6 +298,7 @@ private fun SelectCountryButton(flag: String, onClick: ClickHandler) {
 
 @Composable
 private fun SelectNewsSourceButton(onClick: ClickHandler) {
+
     PrimaryButton(
         modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
         text = SELECT_NEWS_SOURCE
