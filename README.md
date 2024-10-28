@@ -41,3 +41,5 @@ By following these steps and using your own API key, you can avoid hitting the A
 - [**Jetpack Compose**](https://developer.android.com/develop/ui/compose) - Jetpack Compose is Android’s recommended modern toolkit for building native UI. It simplifies and accelerates UI development on Android.
 - [**Coil**](https://coil-kt.github.io/coil/) - An image loading library for Android backed by Kotlin Coroutines.
 - [**Material 3**](https://github.com/material-components/material-components-android) - Material design components for building View layouts and Animations.
+
+## App UI
