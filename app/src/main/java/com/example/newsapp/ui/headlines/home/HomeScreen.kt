@@ -162,7 +162,7 @@ fun HomeScreen(
             showCountriesBottomSheet = { showCountriesBottomSheet = it })
     },
         floatingActionButton = {
-            FloatingActionButton(onClick = { navController.navigate(Route.HomeScreen.name) }) {
+            FloatingActionButton(onClick = { navController.navigate(Route.BookmarksScreen.name) }) {
 
                 Icon(
                     painter = painterResource(id = R.drawable.bookmarks),

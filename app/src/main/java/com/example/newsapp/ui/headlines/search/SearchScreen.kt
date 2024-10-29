@@ -6,8 +6,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -45,9 +47,11 @@ import com.example.newsapp.utils.StringsHelper.StringsHelper.SAVED_TO_BOOKMARK
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filter
+import androidx.compose.material3.TopAppBar
+import androidx.compose.ui.tooling.preview.Preview
+import kotlinx.coroutines.FlowPreview
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchScreen(
     context: Context,
@@ -80,7 +84,7 @@ fun SearchScreen(
                     Box(modifier = Modifier.fillMaxWidth()) {
                         LoadPaginatedHeadlines(
                             headlines = searchHeadlinesState,
-                            isNetworkConnected = networkConnectedState,
+                            isNetworkConnected = true,
                             bookmarkIcon = painterResource(id = R.drawable.add),
                             onHeadlineClicked = { onHeadlineClicked(it.url) },
                             onBookmarkClicked = {
@@ -94,9 +98,7 @@ fun SearchScreen(
                     }
                 }
                 else {
-
                     searchViewmodel.clearHeadlines()
-
                 }
             }
         }
@@ -107,14 +109,15 @@ fun SearchScreen(
 @OptIn(ExperimentalMaterial3Api::class)
 fun TopAppBar(onBackPressed: ClickHandler, onQueryChange: SearchHandler) {
 
-    androidx.compose.material3.TopAppBar(
+    TopAppBar(
         title = {
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth().padding(end = 8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 BackButton { onBackPressed() }
-                SearchField(onQueryChange)
+                Spacer(modifier = Modifier.width(8.dp))
+                SearchField{ onQueryChange(it) }
             }
         },
         colors = TopAppBarDefaults.topAppBarColors(
@@ -125,6 +128,7 @@ fun TopAppBar(onBackPressed: ClickHandler, onQueryChange: SearchHandler) {
 }
 
 
+@OptIn(FlowPreview::class)
 @Composable
 private fun SearchField(onQueryChange: SearchHandler) {
 
@@ -141,7 +145,7 @@ private fun SearchField(onQueryChange: SearchHandler) {
     BasicTextField(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 24.dp),
+            .padding(vertical = 8.dp),
         value = searchText,
         onValueChange = { query -> searchText = query },
         singleLine = true,
@@ -167,4 +171,12 @@ private fun SearchField(onQueryChange: SearchHandler) {
             }
         }
     )
+}
+
+@Composable
+@Preview
+private fun SearchFieldPreview(){
+    SearchField {
+
+    }
 }

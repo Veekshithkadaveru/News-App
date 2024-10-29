@@ -11,6 +11,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import android.util.Log
 
 
 const val TAG = "Network-Manager"
@@ -47,6 +48,7 @@ class NetworkConnected(context: Context) : LiveData<Boolean>() {
                     val hasInternet = InternetConnectivity.execute(network.socketFactory)
                     if (hasInternet) {
                         withContext(Dispatchers.Main) {
+                            Log.d(TAG, "onAvailable: adding network. $network")
                             validNetworks.add(network)
                             checkValidNetworks()
                         }
@@ -56,6 +58,7 @@ class NetworkConnected(context: Context) : LiveData<Boolean>() {
         }
 
         override fun onLost(network: Network) {
+            Log.d(TAG, "onLost: $network")
             validNetworks.remove(network)
             checkValidNetworks()
         }
