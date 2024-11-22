@@ -1,5 +1,5 @@
 # News App
-Samachar is an Android news app built to demonstrate the MVVM architecture in Kotlin. It utilizes Jetpack Compose, Dagger Hilt, Retrofit, RoomDB, Coroutines, and Flow
+News App is an Android news app built to demonstrate the MVVM architecture in Kotlin. It utilizes Jetpack Compose, Dagger Hilt, Retrofit, RoomDB, Coroutines, and Flow
 
 ## Major highlights
 
@@ -43,3 +43,9 @@ By following these steps and using your own API key, you can avoid hitting the A
 - [**Material 3**](https://github.com/material-components/material-components-android) - Material design components for building View layouts and Animations.
 
 ## App UI
+
+| ![Screenshot_20241030_184046](https://github.com/user-attachments/assets/5e98201c-104b-46fd-9034-96c824bb14f3) | ![Screenshot_20241030_183830](https://github.com/user-attachments/assets/9f02e426-3e21-4895-9e73-75b00f765bd9) | ![Screenshot_20241030_183954](https://github.com/user-attachments/assets/baa0b722-6183-46c1-a16b-f5e7b715c001) | 
+| --- | --- | --- |
+| ![Screenshot_20241030_184011](https://github.com/user-attachments/assets/5ab72c3b-d18a-44bc-b5e8-b53bd2c0d5d7) | ![Screenshot_20241030_184026](https://github.com/user-attachments/assets/c2994754-570a-4bed-b971-66a97706706f)| ![Screenshot_20241030_185158](https://github.com/user-attachments/assets/bb657d3d-7ed1-4df7-bf4d-9ed038d38c64)
+
+
